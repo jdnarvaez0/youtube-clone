@@ -21,7 +21,7 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 // import { Link } from "react-router-dom";
 
 const Container = styled.div`
-	flex: 3;
+	flex: 1;
 	background-color: ${({ theme }) => theme.bgLighter};
 	height: 100%;
 	color: ${({ theme }) => theme.text};
