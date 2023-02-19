@@ -25,13 +25,13 @@ const Container = styled.div`
 	background-color: ${({ theme }) => theme.bgLighter};
 	height: 100%;
 	color: ${({ theme }) => theme.text};
-	font-size: 14px;
+	font-size: 12px;
 	position: sticky;
 	top: 0;
 `;
 
 const Wrapper = styled.div`
-	padding: 18px 26px;
+	padding: 16px 24px;
 `;
 
 const Logo = styled.div`
@@ -49,7 +49,7 @@ const Img = styled.img`
 const Item = styled.div`
 	display: flex;
 	align-items: center;
-	gap: 25px;
+	gap: 20px;
 	cursor: pointer;
 	padding: 2px 0px;
 
@@ -79,10 +79,10 @@ const Button = styled.button`
 `;
 
 const Title = styled.h2`
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 500;
 	color: #aaaaaa;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
 `;
 
 const Menu = ({ darkMode, setDarkMode }) => {
