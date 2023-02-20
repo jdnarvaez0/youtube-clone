@@ -19,8 +19,6 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 import { Link } from "react-router-dom";
 
-// import { Link } from "react-router-dom";
-
 const Container = styled.div`
 	flex: 1;
 	background-color: ${({ theme }) => theme.bgLighter};
@@ -120,10 +118,12 @@ const Menu = ({ darkMode, setDarkMode }) => {
 				<Hr />
 				<Login>
 					Sign in to like videos, comment, and subscribe.
-					<Button>
-						<AccountCircleOutlinedIcon />
-						SIGN IN
-					</Button>
+					<Link to="signin" style={{ textDecoration: "none" }}>
+						<Button>
+							<AccountCircleOutlinedIcon />
+							SIGN IN
+						</Button>
+					</Link>
 				</Login>
 				<Hr />
 				<Title>BEST OF JUAND</Title>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
 	width: ${(props) => props.type !== "sm" && "260px"};
-	margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
+	margin-bottom: ${(props) => (props.type === "sm" ? "12px" : "45px")};
 	cursor: pointer;
 	display: ${(props) => props.type === "sm" && "flex"};
 	gap: 10px;
@@ -14,7 +14,7 @@ const Image = styled.img`
 	width: 100%;
 	height: ${(props) => (props.type === "sm" ? "100px" : "150px")};
 	background-color: #999;
-	flex: 1;
+	flex: 2;
 `;
 
 const Details = styled.div`
