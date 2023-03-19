@@ -6,6 +6,7 @@ import commentRoutes from "./routes/comments.js";
 import videoRoutes from "./routes/videos.js";
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -21,6 +22,7 @@ const connect = () => {
 		});
 };
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
@@ -38,7 +40,7 @@ app.use((err, req, res, next) => {
 	});
 });
 
-app.listen(3001, () => {
+app.listen(5000, () => {
 	connect();
-	console.log("Server is running on port 3001");
+	console.log("Server is running on port 5000");
 });
