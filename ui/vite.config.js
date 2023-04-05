@@ -12,7 +12,6 @@ export default defineConfig({
 			"/api": {
 				target: process.env.REACT_APP_API_URL,
 				changeOrigin: true,
-				// secure: false,
 			},
 		},
 	},

@@ -112,6 +112,12 @@ const Subscribe = styled.button`
 	cursor: pointer;
 `;
 
+const VideoFrame = styled.video`
+	max-height: 720px;
+	width: 100%;
+	object-fit: cover;
+`;
+
 const Video = () => {
 	const { currentUser } = useSelector((state) => state.user);
 	const { currentVideo } = useSelector((state) => state.video);
@@ -147,19 +153,18 @@ const Video = () => {
 		dispatch(dislike(currentUser._id));
 	};
 
+	const handleSub = async () => {
+		currentUser.subscribedUsers.includes(channel._id)
+			? await axios.put(`/api/users/unsub/${channel._id}`)
+			: await axios.put(`/api/users/sub/${channel._id}`);
+		dispatch(subscription(channel._id));
+	};
+
 	return (
 		<Container>
 			<Content>
 				<VideoWrapper>
-					<iframe
-						width="100%"
-						height="500"
-						src="https://www.youtube.com/embed/k3Vfj-e1Ma4"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
+					<VideoFrame src={currentVideo.videoUrl} />
 				</VideoWrapper>
 				<Title>{currentVideo.title}</Title>
 				<Details>
@@ -201,10 +206,14 @@ const Video = () => {
 							<Description>{currentVideo.desc}</Description>
 						</ChannelDetail>
 					</ChannelInfo>
-					<Subscribe>SUBSCRIBE</Subscribe>
+					<Subscribe onClick={handleSub}>
+						{currentUser.subscribedUsers?.includes(channel._id)
+							? "SUBSCRIBED"
+							: "SUBSCRIBE"}
+					</Subscribe>
 				</Channel>
 				<Hr />
-				<Comments />
+				<Comments videoId={currentVideo._id} />
 			</Content>
 			{/* <Recommendation>
 				<Card type="sm" />
